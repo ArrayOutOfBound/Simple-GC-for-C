@@ -8,10 +8,10 @@
 
 blockHead *PtrHashTable[HASH_SIZE]; //Records all pointers allocated 
 
-blockHead *BlockList = NULL; //List of all blocks allocated
+blockHead *BlockList = NULL; //List of all memory blocks allocated
 
 
-//Record a pointer to HashTable
+//Add a pointer into HashTable
 static void Record( blockHead *head )
 {
 	int index = PtrHash((size_t)(head+1));
@@ -30,7 +30,7 @@ static void Record( blockHead *head )
 }
 
 
-//Determine whether a pointer has been allocated
+//Determine whether a pointer is in the HashTable
 static int ValidPtr( blockHead *ptr )
 {
 	size_t val = (size_t) ptr;
